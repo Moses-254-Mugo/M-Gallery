@@ -43,7 +43,10 @@ class Images(models.Model):
         return image_location
 
 
-
+    @classmethod
+    def search_by_title(cls,search_term):
+        news = cls.objects.filter(title__icontains=search_term)
+        return news
 
 
 
