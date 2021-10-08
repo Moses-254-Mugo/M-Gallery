@@ -20,8 +20,7 @@ class Images(models.Model):
         self.delete()
 
     @classmethod
-    def update_images(cls):
-
+    def get_all_images(cls):
         images = cls.objects.all()
 
         return images
