@@ -6,7 +6,10 @@ from django.conf.urls.static import static
 urlpatterns=[
     url('^$',views.Home,name = 'Home'),
     url(r'^search/', views.search_results, name='search_results'),
-    url(r'^location/(\d+)', views.search_by_location, name='search_location')
+    url(r'^single_image/(\d+)', views.single_image, name='single_image'),
+    url(r'^location/(\d+)', views.search_by_location, name='search_location'),
+    url(r'^category/(\d+)', views.search_by_category, name='search_by_category')
+    
 ]
 
 
