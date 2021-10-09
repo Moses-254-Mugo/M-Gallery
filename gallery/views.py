@@ -6,11 +6,11 @@ from .models import Images, Location, Category
 def welcome(request):
     return render(request,'welcome.html')
 
-def Homa_page(request):
+def Home(request):
     category = Category.get_category()
     images = Images.get_all_images()
     images_location = Location.get_location()
-    return render(request,'images.html', {'category': category, 'images': images, 'images_location': images_location})
+    return render(request,'Home.html', {'category': category, 'images': images, 'images_location': images_location})
 
 def search_results(request):
 
