@@ -32,6 +32,12 @@ def single_image(request, id):
     except ObjectDoesNotExist:
         raise Http404()
     return render(request, "single_image.html",{"photo":photo})
+
+def search_by_category(request, category):
+    category_image = Images.get_category(category)
+    return render(request, "category.html", {"category_image": category_image})
+
+    
     
 def search_by_location(request, location):
     location_image = Images.filter_by_location(location)
