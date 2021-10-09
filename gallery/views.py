@@ -1,6 +1,8 @@
+from django.http.response import Http404
 from django.shortcuts import render
 from django.http  import HttpResponse
 from .models import Images, Location, Category
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 
@@ -22,6 +24,14 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
+
+
+def single_image(request, id):
+    try:
+        photo = Images.objects.get(id = id)
+    except ObjectDoesNotExist:
+        raise Http404()
+    return render(request, "single_image.html",{"photo":photo})
     
 def search_by_location(request, location):
     location_image = Images.filter_by_location(location)

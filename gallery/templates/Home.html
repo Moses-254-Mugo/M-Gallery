@@ -6,13 +6,28 @@
             <div class="card-body">
               <h5 class="card-title">Special title treatment</h5>
               <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <div class="dropdown">
-                <button onclick="myFunction1()" class=" w3-button dropbtn">Filter by Category</button>
-                <div id="myDropdown" class="dropdown-content">
-                    {% for my_catpic in category %}
-                    <a href="/category/{{my_catpic.id}}">{{my_catpic.category_name}}</a> {% endfor %}
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="dropdown">
+                            <button onclick="myFunctionOne()" class=" w3-button dropbtn">Search by Category</button>
+                            <div id="myDropdown" class="dropdown-content">
+                                {% for my_catpic in category %}
+                                <a href="/category/{{my_catpic.id}}">{{my_catpic.category_name}}</a> {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="w3-dropdown-click">
+                            <button onclick="myFunction2()" class="w3-button  dropbtn">Search by Location</button>
+                            <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
+                                {% for my_loc in location_pics %}
+                                <a href="/location/{{my_loc.id}}" class="w3-bar-item w3-button"> {{my_loc.location_name}} </a>
+                                <p>{{locationpic}}</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
               <!-- <a href="#" class="btn btn-primary">Go somewhere</a>
               <a href="#" class="btn btn-primary">Go somewhere</a> -->
             </div>
@@ -81,7 +96,7 @@
 <script>
     /* When the user clicks on the button, 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     toggle between hiding and showing the dropdown content */
-    function myFunction1() {
+    function myFunctionOne() {
         document.getElementById("myDropdown").classList.toggle("show");
     }
 
@@ -98,5 +113,15 @@
             }
         }
     }
+
+
+    function myFunction2() {
+                    var x = document.getElementById("Demo");
+                    if (x.className.indexOf("w3-show") == -1) {
+                        x.className += " w3-show";
+                    } else {
+                        x.className = x.className.replace(" w3-show", "");
+                    }
+                }
 </script>
 {% endblock %}

@@ -2,13 +2,16 @@
 {% block content %}
     <div class="container">
         <div class="row">
-            <div class="card-deck">
+            <div class="col-3"></div>
+            <div class="col-6">
+              <div class="card-deck">
                 <div class="card">
                   <img src="{{phote.image.url}}" class="card-img-top" alt="...">
                   <div class="card-body">
-                    <h5 class="card-title">Image Name{{phote.name}}</h5>
-                    <p class="card-text">{{phote.description}}</p>
-                    <p class="card-text">{{phote.location}}</p>
+                    <h5 class="card-title">Image Name: {{photo.name}}</h5>
+                    <p class="card-text">Category:{{photo.category}}</p>
+                    <p class="card-text">Descriptin:{{photo.description}}</p>
+                    <p class="card-text"> Location :{{photo.location}}</p>
                   </div>
                   <div class="card-footer">
                     <small class="text-muted">Last updated 3 mins ago</small>
@@ -16,6 +19,9 @@
                 </div>
                 
               </div>
+            </div>
+            <div class="col-3"></div>
+
         </div>
     </div>
     <style>
@@ -23,3 +29,4 @@
     </style>
 
 {% endblock %}
+
