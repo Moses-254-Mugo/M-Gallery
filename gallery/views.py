@@ -6,7 +6,7 @@ from .models import Images, Location, Category
 def welcome(request):
     return render(request,'welcome.html')
 
-def img(request):
+def Homa_page(request):
     category = Category.get_category()
     images = Images.get_all_images()
     images_location = Location.get_location()
