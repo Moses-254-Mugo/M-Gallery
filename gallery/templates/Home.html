@@ -1,4 +1,48 @@
 {%extends 'base.html'%}
 {% block content %}
-<h1>Hello Moses G</h1>
+<div class="container">
+    <div class="row">
+        <div class="card text-center">
+            <div class="card-body">
+              <h5 class="card-title">Special title treatment</h5>
+              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+    </div>
+</div>
+<style>
+    body{
+        background-color: lavender;
+        /* background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; */
+        /* color:; */
+    }
+    .card{
+        padding: 50px;
+        background-color: #403c3b;
+        color: #fff;
+        border-radius: 10px;
+    }
+</style>
+
+
+{
+<ul>
+    <li>
+        <a href="{% url 'gallery' %}"> All</a>
+    </li>
+    % for category in categories %}
+    <li>
+        <a href="{%url 'gallery' %}?category={{category.name}}"></a>
+    </li>
+    {% endfor %}
+
+</ul>
+
+
+
+
 {% endblock %}

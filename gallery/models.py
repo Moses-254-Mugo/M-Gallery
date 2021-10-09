@@ -1,11 +1,11 @@
 from django.db import models
-from django.db.models.base import Model
+# from django.db.models.base import Model
 
 # Create your models here.
 class Images(models.Model):
     images = models.ImageField(upload_to='images/')
     name = models.CharField(max_length=60)
-    description= models.CharField(max_length=80)
+    description= models.CharField(max_length=200)
     location = models.ForeignKey('Location',on_delete=models.CASCADE)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
 
