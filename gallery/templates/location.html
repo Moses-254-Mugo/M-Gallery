@@ -1,0 +1,39 @@
+{%extends 'base.html'%} 
+{% block content %}
+
+<div class="container">
+    {% for loc in locationimg %}
+
+    <div class="row row-cols-1 row-cols-sm-2 g-1">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+          <div class="card h-80">
+            <img src="{{loc.image.url}}" class="card-img-top" alt="" style="width: 100%;">
+            <div class="card-body">
+              <h5 class="card-title" class="text-center">Name: {{pic.name}}</h5>
+              <!-- <p class="card-text">Description: {{pic.description}}</p> -->
+              <p class="text-center"><a href="/single_image/{{loc.id}}" class="btn btn-success">Details</a></p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3"></div>
+      </div>
+    {% endfor %}
+</div>
+
+<style>
+   body{
+       background-image: url(https://www.whatsappimages.in/wp-content/uploads/2021/01/Download-White-Background-Pics.jpg);
+       background-position: center;
+       background-size: cover;
+
+   }
+   .row{
+       padding: 20px;
+   }
+  
+</style>
+{% endblock%}

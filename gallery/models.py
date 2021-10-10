@@ -1,9 +1,9 @@
 from django.db import models
-# from django.db.models.base import Model
+
 
 # Create your models here.
 class Images(models.Model):
-    images = models.ImageField(upload_to='images/')
+    image = models.ImageField(upload_to='images/')
     name = models.CharField(max_length=60)
     description= models.CharField(max_length=200)
     location = models.ForeignKey('Location',on_delete=models.CASCADE)
@@ -27,26 +27,29 @@ class Images(models.Model):
 
 
     @classmethod
-    def get_image_by_id(cls,id):
+    def get_single_image(cls,id):
         img = cls.objects.filter(id=id)
 
         return img
 
     @classmethod
-    def search_image_by_category(cls, category):
-        image_category = cls.objects.filter(categroy = category)
-        return image_category
-        
-    @classmethod
-    def filter_by_location(cls,location):
-        image_location = cls.objects.filter(location = location)
-        return image_location
-
-
-    @classmethod
     def search_by_name(cls,search_term):
         image = cls.objects.filter(name__icontains=search_term)
         return image
+
+    @classmethod
+    def view_image_by_location(cls,location):
+        location_image = cls.objects.filter(location = location)
+        return location_image   
+
+    @classmethod
+    def view_image_by_category(cls,category):
+        category = cls.objects.filter(category = category)
+        return category
+        
+   
+
+
 
 
 
@@ -57,6 +60,9 @@ class Location(models.Model):
     def save_location(self):
         self.save()
 
+
+    def __str__(self):
+        return self.location_name
     
     def delete_location(self):
         self.delete()
@@ -66,8 +72,7 @@ class Location(models.Model):
         location = cls.objects.all()
         return location
 
-    def __str__(self):
-        return self.location_name
+    
     
 
 
@@ -84,8 +89,8 @@ class Category(models.Model):
 
     @classmethod
     def get_category(cls):
-        category = cls.objects.all()
-        return category
+        categories= cls.objects.all()
+        return categories
 
 
     def __str__(self):

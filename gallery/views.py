@@ -16,7 +16,7 @@ def search_results(request):
 
     if 'image' in request.GET and request.GET["image"]:
         search_term = request.GET.get("image")
-        searched_image = Images.search_by_title(search_term)
+        searched_image = Images.search_by_name(search_term)
         message = f"{search_term}"
 
         return render(request, 'search.html',{"message":message,"images": searched_image})
@@ -33,13 +33,15 @@ def single_image(request, id):
         raise Http404()
     return render(request, "single_image.html",{"photo":photo})
 
-def search_by_category(request, category):
-    category_image = Images.get_category(category)
-    return render(request, "category.html", {"category_image": category_image})
 
-    
-    
+
 def search_by_location(request, location):
-    location_image = Images.filter_by_location(location)
-    return render(request,'location.html', {"location_image":location_image})
+    locationimg = Images.view_image_by_location(location)
+    return render(request,'location.html', {"locationimg":locationimg})
     
+ 
+
+def search_by_category(request, category):
+    categoryimg = Images.view_image_by_category(category)
+    return render(request, "category.html", {"categoryimg": categoryimg})
+

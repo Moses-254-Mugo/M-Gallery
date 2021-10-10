@@ -6,15 +6,17 @@
             <div class="col-6">
               <div class="card-deck">
                 <div class="card">
-                  <img src="{{phote.image.url}}" class="card-img-top" alt="...">
+                  <h5 class="text-center">Image Name: {{photo.name}}</h5>
+                  <hr>
+                  <img src="{{photo.image.url}}" alt="Card image cap" width="100%">
                   <div class="card-body">
-                    <h5 class="card-title">Image Name: {{photo.name}}</h5>
-                    <p class="card-text">Category:{{photo.category}}</p>
-                    <p class="card-text">Descriptin:{{photo.description}}</p>
-                    <p class="card-text"> Location :{{photo.location}}</p>
+                    
+                    <p class="card-text">CATEGORY: {{photo.category}}</p>
+                    <p class="card-text">DESCRIPTION: {{photo.description}}</p>
+                    <p class="card-text">LOCATION :{{photo.location}}</p>
                   </div>
                   <div class="card-footer">
-                    <small class="text-muted">Last updated 3 mins ago</small>
+                    <p class="text-center"><small class="text-muted">Last updated 3 mins ago</small></p>
                   </div>
                 </div>
                 
@@ -25,7 +27,19 @@
         </div>
     </div>
     <style>
-        
+      body{
+        background-image: url(https://www.whatsappimages.in/wp-content/uploads/2021/01/Download-White-Background-Pics.jpg);
+        background-position: center;
+        background-size: cover;
+      }
+        .card-deck{
+          margin-top: 30px;
+          /* padding: 10px; */
+          box-shadow: 3px 3px 7px #1e1e1e;
+          background-color: #1e1e1e;
+          border-radius: 10px;
+        }
+  
     </style>
 
 {% endblock %}

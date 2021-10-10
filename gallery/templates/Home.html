@@ -2,14 +2,16 @@
 {% block content %}
 <div class="container">
     <div class="row">
+        
         <div class="card text-center">
+            <h2 class="card-title">Welcome to the M-Gallery</h2>
             <div class="card-body">
-              <h5 class="card-title">Special title treatment</h5>
-              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+              
+              <p class="card-text">You can view the images by clicking the buttons below..</p>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="dropdown">
-                            <button onclick="myFunctionOne()" class=" w3-button dropbtn">Search by Category</button>
+                            <button onclick="myFunctionone()" class=" w3-button dropbtn">Search by Category</button>
                             <div id="myDropdown" class="dropdown-content">
                                 {% for my_catpic in category %}
                                 <a href="/category/{{my_catpic.id}}">{{my_catpic.category_name}}</a> {% endfor %}
@@ -20,33 +22,33 @@
                         <div class="w3-dropdown-click">
                             <button onclick="myFunction2()" class="w3-button  dropbtn">Search by Location</button>
                             <div id="Demo" class="w3-dropdown-content w3-bar-block w3-border">
-                                {% for my_loc in location_pics %}
+                                {% for my_loc in location_image %}
                                 <a href="/location/{{my_loc.id}}" class="w3-bar-item w3-button"> {{my_loc.location_name}} </a>
-                                <p>{{locationpic}}</p>
+                                <p>{{location_image}}</p>
                                 {% endfor %}
                             </div>
                         </div>
                     </div>
                 </div>
-              <!-- <a href="#" class="btn btn-primary">Go somewhere</a>
-              <a href="#" class="btn btn-primary">Go somewhere</a> -->
+           
             </div>
           </div>
     </div>
 </div>
 <style>
     body{
-        background-color: lavender;
-        /* background-size: cover;
+        background-image: url(https://www.whatsappimages.in/wp-content/uploads/2021/01/Download-White-Background-Pics.jpg);
+        background-size: cover;
         background-position: center;
-        background-repeat: no-repeat; */
-        /* color:; */
+        background-repeat: no-repeat;
     }
     .card{
-        padding: 50px;
+        margin-top: 10%;
+        padding: 80px;
         background-color: #403c3b;
         color: #fff;
         border-radius: 10px;
+        opacity: .7;
     }
 
     .dropbtn {
@@ -96,7 +98,7 @@
 <script>
     /* When the user clicks on the button, 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     toggle between hiding and showing the dropdown content */
-    function myFunctionOne() {
+    function myFunctionone() {
         document.getElementById("myDropdown").classList.toggle("show");
     }
 
