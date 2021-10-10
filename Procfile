@@ -1,0 +1,1 @@
+web: gunicorn moseGallery.wsgi --log-file -
