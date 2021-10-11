@@ -9,6 +9,10 @@ Mugo Moses
 M-Gallery is a django application that allows users display their photos for others to see.
 
 ## Screenshots
+<img src="images/Homepage.png" alt="">
+<img src="images/view.png" alt="">
+<img src="images/Admin dashboard.png" alt="">
+
 
 
 ## Setup Instructions:
